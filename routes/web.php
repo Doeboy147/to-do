@@ -11,10 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'Main@index');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('/todo', 'Todo');
+Route::get('/edit-item/{id}', 'Todo@edit');
+
+Route::get('/get-mine/{id}', 'Todo@getUserList');
+Route::get('/change-status/{id}/{status}', 'Todo@changeStatus');
+Route::post('/search', 'Main@search');
+Route::get('/get-all/', 'Main@getAll');
