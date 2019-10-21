@@ -9,10 +9,9 @@ angular.module('MainApp', [], function ($interpolateProvider) {
             console.log(error.data);
         });
     };
-
     $scope.search = function (query) {
         let data = {};
-        if (query.length > 3) {
+        if (query.length > 2) {
             data.search = query;
             $http.post('/search', data).then(function (response) {
                 $scope.todos = response.data;
@@ -23,7 +22,6 @@ angular.module('MainApp', [], function ($interpolateProvider) {
             $scope.getall();
         }
     }
-
 }).controller('DashCtrl', function ($scope, $http) {
     $scope.getMyList = function (userID) {
         sessionStorage.setItem("userId", userID);

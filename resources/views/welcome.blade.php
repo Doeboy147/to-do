@@ -20,7 +20,7 @@
                             <div class="row">
                                 @if($todos->count())
                                     <div ng-repeat="todo in todos" class="col-md-12 mt-2">
-                                       - <a href="#"> <% todo.body %> </a>
+                                       - <% todo.body %>
                                         <span
                                             class="badge badge-info" ng-show="todo.status==1"> done </span>
                                     </div>

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Todo as Model;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Profile;
 
 class HomeController extends Controller
 {
@@ -13,7 +15,8 @@ class HomeController extends Controller
 
     public function index()
     {
-        $todos = Model::paginate(5);
-        return view('home', ['todos' => $todos]);
+        $todos   = Model::paginate(5);
+        $profile = Profile::where('user_id', Auth::user()->uuid)->first();
+        return view('home', ['todos' => $todos, 'profile' => $profile]);
     }
 }

@@ -27,8 +27,8 @@
                                         <button ng-if="todo.status==1" ng-click="changeStatus(todo.uuid, 0)"
                                                 class="btn btn-sm btn-warning mr-1"><i
                                                 class="fa fa-times"></i> </button>
-                                        <a href="#" class="btn btn-sm btn-dark mr-1">Edit</a>
-                                        <a href="#" class="btn btn-sm btn-danger mr-1">Delete</a>
+                                        <a href="/edit-item/<% todo.uuid %>" class="btn btn-sm btn-dark mr-1">Edit</a>
+                                        <a href="/delete-item/<% todo.uuid %>" class="btn btn-sm btn-danger mr-1">Delete</a>
                                     </span>
                                 </div>
                             @else

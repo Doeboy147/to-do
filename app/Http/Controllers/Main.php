@@ -9,13 +9,13 @@ class Main extends Controller
 {
     public function index()
     {
-        $todos = Model::paginate(10);
+        $todos = Model::orderBy('status')->paginate(10);
         return view('welcome', ['todos' => $todos]);
     }
 
     public function getAll()
     {
-        return Model::paginate(10);
+        return Model::orderBy('status')->paginate(10);
     }
 
     public function search(Request $query)
